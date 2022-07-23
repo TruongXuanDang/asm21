@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<!-- saved from url=(0049)http://www.simplesite.com/us-123wedding/146239002 -->
 <html lang="en-US" class="">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Guestbook - www.simplesite.com/us-123wedding</title>
+<title>Guestbook</title>
 <meta property="og:site_name" content="Maria and Paul&#39;s Wedding">
 <meta property="article:publisher"
 	content="https://www.facebook.com/simplesite">
@@ -24,25 +23,15 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description"
 	content="Maria and Paul&#39;s Wedding - http://www.simplesite.com/us-123wedding/">
-<link rel="stylesheet" type="text/css"
-	href="./Guestbook - www.simplesite.com_us-123wedding_files/3731000.design.v25490.css">
+<link th:href="@{/css/3731000.design.v25490.css}" rel="stylesheet" type="text/css">
 <link rel="canonical"
 	href="http://www.simplesite.com/us-123wedding/146239002">
 <link rel="shortcut icon" href="data:image/x-icon;,">
-<script type="text/javascript" async=""
-	src="./Guestbook - www.simplesite.com_us-123wedding_files/analytics.js"></script>
-<script async=""
-	src="./Guestbook - www.simplesite.com_us-123wedding_files/gtm.js"></script>
-<script type="text/javascript"
-	src="./Guestbook - www.simplesite.com_us-123wedding_files/FrontendAppLocalePage.aspx"></script>
-<script type="text/javascript"
-	src="./Guestbook - www.simplesite.com_us-123wedding_files/frontendApp.min.js"></script>
 <script type="text/javascript">
 	if (typeof window.jQuery == "undefined") {
 		(function() {
 			var a = document.createElement("script");
 			a.type = "text/javascript";
-			a.src = "/c/js/version3/frontendApp/init/frontendApp.min.js?_v=b8e7069b6e4fecc37c8394dc153e5d4f";
 			document.getElementsByTagName('head')[0].appendChild(a);
 		})();
 	}
@@ -105,21 +94,11 @@
 							<!-- Everything you want hidden at 940px or less, place within here -->
 							<div class="nav-collapse collapse">
 								<ul class="nav" id="topMenu" data-submenu="horizontal">
-									<li class="  " style=""><a rel="nofollow"
-										href="http://www.simplesite.com/us-123wedding/146238995">Wedding
-											Blog</a></li>
-									<li class="  " style=""><a rel="nofollow"
-										href="http://www.simplesite.com/us-123wedding/146239001">Photo
-											Album</a></li>
-									<li class="  " style=""><a rel="nofollow"
-										href="http://www.simplesite.com/us-123wedding/146239000">Wishlist</a>
-									</li>
-									<li class=" active " style=""><a rel="nofollow"
-										href="http://www.simplesite.com/us-123wedding/146239002">Guestbook</a>
-									</li>
-									<li class="  " style=""><a rel="nofollow"
-										href="http://www.simplesite.com/us-123wedding/146239003">Party
-											Address</a></li>
+									<li class="  " style=""><a href="weddingBlog">Wedding Blog</a></li>
+									<li class="  " style=""><a href="photoAlbum">Photo Album</a></li>
+									<li class="  " style=""><a href="wishlist">Wishlist</a></li>
+									<li class=" active " style=""><a href="guestbook">Guestbook</a></li>
+									<li class="  " style=""><a href="partyAddress">Party Address</a></li>
 								</ul>
 							</div>
 						</div>
@@ -163,7 +142,7 @@
 													<div class="image">
 														<a rel="nofollow" data-ss="imagemodal"
 															data-href="http://sp.simplesite.com/7a/e3/s7ae3b6c800a342ed95b955bd73ab42db.jpg"><img
-															src="./Guestbook - www.simplesite.com_us-123wedding_files/s7ae3b6c800a342ed95b955bd73ab42db.jpg"></a>
+															th:src="@{/images/s7ae3b6c800a342ed95b955bd73ab42db.jpg}"></a>
 													</div>
 												</div>
 

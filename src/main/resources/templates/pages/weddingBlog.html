@@ -126,6 +126,54 @@
 							</div>
 
 							<div class="content">
+								<div th:each="entity:${listEntities}" class="section">
+									<div class="content">
+										<div class="avatar">
+											<i class="icon-pencil icon-4x" th:title="${entity.name}"></i>
+										</div>
+										<div class="item">
+											<div class="controls">
+												<span class="date-text" th:text="${entity.date}"></span>
+											</div>
+											<div class="heading">
+												<h4>
+													<a rel="nofollow"
+														href="http://www.simplesite.com/us-123wedding/146238995/749600/posting/dolore-magna-aliquam">[(${entity.name})]</a>
+												</h4>
+											</div>
+
+											<div class="content">
+												<div class="img-simple span6 pull-left">
+													<div class="image">
+														<a rel="nofollow" data-ss="imagemodal"
+															data-href="http://cdn.simplesite.com/i/c3/43/282319408040068035/i282319414620602005._szw1280h1280_.jpg"><img
+															th:src="${entity.photos.link}"></a>
+													</div>
+												</div>
+
+												<p>
+													<span style="font-size: 16px;" >Lorem ipsum dolor sit
+														amet, consectetuer adipiscing elit, sed diam nonummy nibh
+														euismod tincidunt ut laoreet dolore magna aliquam erat
+														volutpat.<br> <br>Ut wisi enim ad minim veniam,
+														quis nostrud exerci tation ullamcorper suscipit lobortis
+														nisl ut aliquip ex ea commodo consequat.<br> <br>Duis
+														autem vel eum iriure dolor in hendrerit in vulputate velit
+														esse molestie consequat, vel illum dolore eu feugiat nulla
+														facilisis.&nbsp;Claritas est etiam processus dynamicus,
+														qui sequitur mutationem consuetudium lectorum.&nbsp;
+													</span>
+												</p>
+												<p>
+													<span style="font-size: 16px;"><br>Mirum est
+														notare quam littera gothica.</span>
+												</p>
+											</div>
+
+
+										</div>
+									</div>
+								</div>
 								<div class="section">
 									<div class="content">
 										<div class="avatar">
