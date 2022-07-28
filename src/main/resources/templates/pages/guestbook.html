@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-US" class="">
+<html lang="en-US" class="" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Guestbook</title>
@@ -94,10 +94,10 @@
 							<!-- Everything you want hidden at 940px or less, place within here -->
 							<div class="nav-collapse collapse">
 								<ul class="nav" id="topMenu" data-submenu="horizontal">
-									<li class="  " style=""><a href="weddingBlog">Wedding Blog</a></li>
+									<li class="  " style=""><a href="wedding-blog">Wedding Blog</a></li>
 									<li class="  " style=""><a href="photoAlbum">Photo Album</a></li>
 									<li class="  " style=""><a href="wishlist">Wishlist</a></li>
-									<li class=" active " style=""><a href="guestbook">Guestbook</a></li>
+									<li class=" active " style=""><a href="guest-book">Guestbook</a></li>
 									<li class="  " style=""><a href="partyAddress">Party Address</a></li>
 								</ul>
 							</div>
@@ -125,7 +125,73 @@
 							</div>
 
 							<div class="content">
-								<div id="guestbook-form"></div>
+								<div id="guestbook-form">
+									<div class="section add-message"><div class="controls">
+									    <button class="close">×</button>
+									</div>
+									<div class="heading">
+									    <h4>Add a message</h4>
+									</div>
+									<form class="content" action="#" th:action="@{/saveMessage}" th:object="${messages}" method="post">
+									    <div class="row-fluid">
+									        <div class="span6">
+									            <div class="form-horizontal">
+									                <div class="control-group">
+									                    <textarea name="text" class="input-block-level" maxlength="1500" placeholder="Write your message here" th:field="*{content}"></textarea>
+									                    <span class="help-block"></span>
+									                </div>
+									                <div class="control-group">
+									                    <input name="author[name]" class="input-block-level" type="text" placeholder="Write your name here" th:field="*{name}">
+									                    <span class="help-block"></span>
+									                </div>
+									                <div class="control-group">
+									                    <input name="author[email]" class="input-block-level" type="text" placeholder="Write your email here" th:field="*{email}">
+									                    <span class="help-block"></span>
+									                </div>
+									                <div class="control-group">
+									                    <input name="author[website]" class="input-block-level" type="text" placeholder="Your website address, if you have a website" th:field="*{website}">
+									                    <span class="help-block"></span>
+									                </div>
+									                <input name="image_guid" type="hidden">
+									            </div>
+									        </div>
+									        <div class="span6">
+									            <div class="row-fluid">
+									                <div class="image-input">
+										                <form action="/action_page.php">
+														  <input type="file" id="myFile" name="filename">
+														  <input type="submit">
+														</form>
+									                    <button id="imageuploader" class="btn" type="button">Add image</button>
+									                </div>
+									            </div>
+									        </div>
+									    </div>
+									    <div id="recaptcha" class="row-fluid"></div>
+									    <div class="row-fluid">
+									        <button type="submit" id="add_comment" class="btn btn-primary pull-right" data-default="Send - Click here" data-progress="<i class='icon-spin icon-spinner'></i> Sending" data-error="Error sending message" data-success="<i class='icon-ok'></i> Sent">Send - Click here</button>
+									    </div>
+									</form>
+									<div id="image-tools" class="modal hide fade" tabindex="-1" role="dialog" data-keyboard="false">
+									    <div class="modal-header">
+									        <button type="button" class="close">×</button>
+									        <h3>Image tools</h3>
+									    </div>
+									    <div class="modal-body">
+									        <img id="preview">
+									    </div>
+									    <div class="modal-footer">
+									        <div class="span6">
+									            <button name="rotate" data-direction="ccw" class="btn pull-left" type="button" title="Rotate counter-clockwise"><i class="icon-undo"></i></button>
+									            <button name="rotate" data-direction="cw" class="btn pull-left" type="button" title="Rotate clockwise"><i class="icon-undo icon-flip-horizontal"></i></button>
+									        </div>
+									        <div class="span6">
+									            <button id="cancel" type="button" class="btn btn-cancel">Cancel</button>
+									            <button id="upload" type="button" class="btn btn-primary" data-default="Upload" data-progress="<i class='icon-spin icon-spinner'></i> Uploading" data-error="Error uploading image" data-success="<i class='icon-ok'></i> Done">Upload</button>
+									        </div>
+									    </div>
+									</div></div>
+								</div>
 								<div class="section">
 									<div class="content">
 										<div class="item">
