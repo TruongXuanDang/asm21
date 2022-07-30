@@ -19,7 +19,6 @@ public class WishController {
 	public String viewWishList(Model model) {
 		List<Wishes> listWishes = service.listAll();
 		model.addAttribute("listWishes", listWishes);
-		System.out.print(listWishes);
 		return "pages/wishlist";
 	}
 }

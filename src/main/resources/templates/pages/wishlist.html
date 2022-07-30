@@ -77,7 +77,7 @@ Claritas est etiam processu...">
 				<div class="title-wrapper">
 					<div class="title-wrapper-inner">
 						<a rel="nofollow" class="logo "
-							href="http://www.simplesite.com/us-123wedding/"> </a>
+							href="wedding-blog"> </a>
 						<div class="title ">Maria and Paul's Wedding</div>
 						<div class="subtitle">Welcome to our website</div>
 					</div>
@@ -128,63 +128,8 @@ Claritas est etiam processu...">
 									</div>
 
 									<div class="content">
-										<p>
-											&nbsp;<br>
-											<span style="font-size: 16px;">Claritas est etiam
-												processus&nbsp;</span><span style="font-size: 16px;">(</span><a
-												rel="nofollow" style="font-size: 16px;"
-												href="http://www.testwedding.fr/" target="_blank">www.weddingshop.com</a><span
-												style="font-size: 16px;">)</span>
-										</p>
-										<p>
-											<span style="font-size: 16px;" data-mce-mark="1">Eodem
-												modo typi nobis videntur parum</span>
-										</p>
-										<p>
-											<span style="font-size: 16px;">Duis autem vel eum
-												iriure dolor</span>
-										</p>
-										<p>
-											<span style="font-size: 16px;">Claritas est etiam
-												processus</span>
-										</p>
-										<p>
-											<span style="font-size: 16px;">Eodem modo typi nobis
-												videntur parum&nbsp;<span style="font-size: 16px;">(</span><a
-												rel="nofollow" href="http://www.testwedding.fr/"
-												target="_blank">www.weddingshop.com</a><span
-												style="font-size: 16px;">)</span>
-											</span>
-										</p>
-										<p>
-											<span style="font-size: 16px;">Duis autem vel eum
-												iriure dolor&nbsp;(<a rel="nofollow"
-												href="http://www.testwedding.fr/" target="_blank">www.weddingshop.com</a>)
-											</span>
-										</p>
-										<p>
-											<span style="font-size: 16px;">Claritas est etiam
-												processus</span>
-										</p>
-										<p>
-											<span style="font-size: 16px;">Eodem modo typi nobis
-												videntur parum</span>
-										</p>
-										<p>
-											<span style="font-size: 16px;">Duis autem vel eum
-												iriure dolor</span>
-										</p>
-										<p>
-											<span style="font-size: 16px;">Claritas est etiam
-												processus</span>
-										</p>
-										<p>
-											<span style="font-size: 16px;">Eodem modo typi nobis
-												videntur parum</span>
-										</p>
-										<p>
-											<span style="font-size: 16px;">Duis autem vel eum
-												iriure dolor</span>
+										<p th:each="wish:${listWishes}">
+											<span style="font-size: 16px;" data-mce-mark="1">[(${wish.content})]</span>
 										</p>
 									</div>
 								</div>
