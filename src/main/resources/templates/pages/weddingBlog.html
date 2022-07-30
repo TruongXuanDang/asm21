@@ -100,10 +100,10 @@
 							<div class="nav-collapse collapse">
 								<ul class="nav" id="topMenu" data-submenu="horizontal">
 									<li class=" active " style=""><a href="wedding-blog">Wedding Blog</a></li>
-									<li class="  " style=""><a href="photoAlbum">Photo Album</a></li>
-									<li class="  " style=""><a href="wishlist">Wishlist</a></li>
+									<li class="  " style=""><a href="photo-album">Photo Album</a></li>
+									<li class="  " style=""><a href="wish-list">Wishlist</a></li>
 									<li class="  " style=""><a href="guest-book">Guestbook</a></li>
-									<li class="  " style=""><a href="partyAddress">Party Address</a></li>
+									<li class="  " style=""><a href="party-address">Party Address</a></li>
 								</ul>
 							</div>
 						</div>
@@ -127,7 +127,7 @@
 
 							<div class="content">
 								<div th:each="entity:${listEntities}" class="section">
-									<div class="content">
+									<div class="content" th:if="${entity.photos.link!='' and entity.description!=''}">
 										<div class="avatar">
 											<i class="icon-pencil icon-4x" th:title="${entity.name}"></i>
 										</div>
@@ -152,36 +152,45 @@
 												</div>
 
 												<p>
-													<span style="font-size: 16px;" >Lorem ipsum dolor sit
-														amet, consectetuer adipiscing elit, sed diam nonummy nibh
-														euismod tincidunt ut laoreet dolore magna aliquam erat
-														volutpat.<br> <br>Ut wisi enim ad minim veniam,
-														quis nostrud exerci tation ullamcorper suscipit lobortis
-														nisl ut aliquip ex ea commodo consequat.<br> <br>Duis
-														autem vel eum iriure dolor in hendrerit in vulputate velit
-														esse molestie consequat, vel illum dolore eu feugiat nulla
-														facilisis.&nbsp;Claritas est etiam processus dynamicus,
-														qui sequitur mutationem consuetudium lectorum.&nbsp;
+													<span style="font-size: 16px;" >[(${entity.description})]
 													</span>
 												</p>
-												<p>
-													<span style="font-size: 16px;"><br>Mirum est
-														notare quam littera gothica.</span>
-												</p>
+											</div>
+										</div>
+									</div>
+									<div class="content" th:if="${entity.description!='' and entity.photos.link==''}">
+										<div class="avatar">
+											<i class="icon-feather icon-4x" title="Don&#39;t Go Far Off"></i>
+										</div>
+										<div class="item">
+											<div class="controls">
+												<span class="date-text" th:text="${entity.date}"></span>
+											</div>
+											<div class="heading">
+												<h4>
+													<a rel="nofollow"
+														href="http://www.simplesite.com/us-123wedding/146238995/749580/posting/don-t-go-far-off">Don't
+														Go Far Off</a>
+												</h4>
 											</div>
 
 
+											<div class="content">
+												<blockquote>
+													<p>
+														[(${entity.description})]
+													</p>
+												</blockquote>
+											</div>
 										</div>
 									</div>
-								</div>
-								<div class="section">
-									<div class="content">
+									<div class="content" th:if="${entity.photos.link!='' and entity.description==''}">
 										<div class="avatar">
 											<i class="icon-camera-retro icon-4x" title="Photo"></i>
 										</div>
 										<div class="item">
 											<div class="controls">
-												<span class="date-text">04-06-2014</span>
+												<span class="date-text" th:text="${entity.date}"></span>
 											</div>
 											<div class="heading">
 												<h4>
@@ -200,101 +209,6 @@
 												</div>
 
 											</div>
-
-
-										</div>
-									</div>
-								</div>
-								<div class="section">
-									<div class="content">
-										<div class="avatar">
-											<i class="icon-feather icon-4x" title="Don&#39;t Go Far Off"></i>
-										</div>
-										<div class="item">
-											<div class="controls">
-												<span class="date-text">20-11-2012</span>
-											</div>
-											<div class="heading">
-												<h4>
-													<a rel="nofollow"
-														href="http://www.simplesite.com/us-123wedding/146238995/749580/posting/don-t-go-far-off">Don't
-														Go Far Off</a>
-												</h4>
-											</div>
-
-
-											<div class="content">
-												<blockquote>
-													<p>
-														Don't go far off, not even for a day, because -- <br>because
-														-- I don't know how to say it: a day is long <br>and
-														I will be waiting for you, as in an empty station <br>when
-														the trains are parked off somewhere else, asleep. <br>
-														<br>Don't leave me, even for an hour, because <br>then
-														the little drops of anguish will all run together, <br>the
-														smoke that roams looking for a home will drift <br>into
-														me, choking my lost heart. <br> <br>Oh, may your
-														silhouette never dissolve on the beach; <br>may your
-														eyelids never flutter into the empty distance. <br>Don't
-														leave me for a second, my dearest, <br> <br>because
-														in that moment you'll have gone so far <br>I'll
-														wander mazily over all the earth, asking, <br>Will
-														you come back? Will you leave me here, dying?
-													</p>
-													<small>Pablo Neruda</small>
-												</blockquote>
-											</div>
-
-
-										</div>
-									</div>
-								</div>
-								<div class="section">
-									<div class="content">
-										<div class="avatar">
-											<i class="icon-pencil icon-4x" title="Dolore magna aliquam"></i>
-										</div>
-										<div class="item">
-											<div class="controls">
-												<span class="date-text">20-11-2012</span>
-											</div>
-											<div class="heading">
-												<h4>
-													<a rel="nofollow"
-														href="http://www.simplesite.com/us-123wedding/146238995/749600/posting/dolore-magna-aliquam">Dolore
-														magna aliquam</a>
-												</h4>
-											</div>
-
-											<div class="content">
-												<div class="img-simple span6 pull-left">
-													<div class="image">
-														<a rel="nofollow" data-ss="imagemodal"
-															data-href="http://cdn.simplesite.com/i/c3/43/282319408040068035/i282319414620602005._szw1280h1280_.jpg"><img
-															th:src="@{/images/i282319414620602005._szw480h1280_.jpg}"></a>
-													</div>
-												</div>
-
-												<p>
-													<span style="font-size: 16px;">Lorem ipsum dolor sit
-														amet, consectetuer adipiscing elit, sed diam nonummy nibh
-														euismod tincidunt ut laoreet dolore magna aliquam erat
-														volutpat.<br> <br>Ut wisi enim ad minim veniam,
-														quis nostrud exerci tation ullamcorper suscipit lobortis
-														nisl ut aliquip ex ea commodo consequat.<br> <br>Duis
-														autem vel eum iriure dolor in hendrerit in vulputate velit
-														esse molestie consequat, vel illum dolore eu feugiat nulla
-														facilisis.&nbsp;Claritas est etiam processus dynamicus,
-														qui sequitur mutationem consuetudium lectorum.&nbsp;
-													</span>
-												</p>
-												<p>
-													<span style="font-size: 16px;"><br>Mirum est
-														notare quam littera gothica.</span>
-												</p>
-											</div>
-
-
 										</div>
 									</div>
 								</div>
