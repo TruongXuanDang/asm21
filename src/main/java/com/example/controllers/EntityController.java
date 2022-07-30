@@ -19,7 +19,13 @@ public class EntityController {
 	public String viewWeddingBlog(Model model) {
 		List<Entities> listEntities = service.listAll();
 		model.addAttribute("listEntities", listEntities);
-		System.out.print(listEntities);
 		return "pages/weddingBlog";
+	}
+	
+	@RequestMapping("/overview")
+	public String viewOverView(Model model) {
+		List<Entities> listEntities = service.listAll();
+		model.addAttribute("listEntities", listEntities);
+		return "pages/overview";
 	}
 }

@@ -1,38 +1,38 @@
 <!DOCTYPE html>
-<html lang="en-US" class="">
+<html xmlns:th="http://www.thymeleaf.org" lang="en-US" class="">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Wishlist</title>
+<title>Wedding Blog</title>
 <meta property="og:site_name" content="Maria and Paul&#39;s Wedding">
 <meta property="article:publisher"
 	content="https://www.facebook.com/simplesite">
 <meta property="og:locale" content="en-US">
 <meta property="og:url"
-	content="http://www.simplesite.com/us-123wedding/146239000">
-<meta property="og:title" content="Our Wishes:">
-<meta property="og:description"
-	content="
- 
-Claritas est etiam processus (www.weddingshop.com)
-Eodem modo typi nobis videntur parum
-Duis autem vel eum iriure dolor
-Claritas est etiam processus
-Eodem modo typi nobis videntur parum (www.weddingshop.com)
-Duis autem vel eum iriure dolor (www.weddingshop.com)
-Claritas est etiam processu...">
+	content="http://www.simplesite.com/us-123wedding/146238995">
+<meta property="og:title" content="Wedding Blog">
+<meta property="og:description" content="Photo">
+<meta property="og:image"
+	content="http://cdn.simplesite.com/i/c3/43/282319408040068035/i282319414620601978._szw1280h1280_.jpg">
 <meta property="og:updated_time"
-	content="2016-06-18T11:22:20.3423407+02:00">
-<meta property="og:type" content="website">
+	content="2016-06-18T11:21:07.6435447+02:00">
+<meta property="og:type" content="blog">
 <meta name="robots" content="nofollow">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description"
 	content="Maria and Paul&#39;s Wedding - http://www.simplesite.com/us-123wedding/">
 <link th:href="@{/css/3731000.design.v25490.css}" rel="stylesheet" type="text/css">
 <link rel="canonical"
-	href="http://www.simplesite.com/us-123wedding/146239000">
+	href="http://www.simplesite.com/us-123wedding/146238995">
+<link rel="alternate" type="application/rss+xml"
+	href="http://www.simplesite.com/us-123wedding/146238995/feed.rss"
+	title="Wedding Blog RSS feed">
+<link rel="alternate" type="application/atom+xml"
+	href="http://www.simplesite.com/us-123wedding/146238995/atomFeed.rss"
+	title="Wedding Blog RSS feed">
 <link rel="shortcut icon" href="data:image/x-icon;,">
+<link th:href="@{/css/jplayer.pink.flag.min.css}" rel="stylesheet"
+	type="text/css">
 <script type="text/javascript">
 	if (typeof window.jQuery == "undefined") {
 		(function() {
@@ -42,7 +42,6 @@ Claritas est etiam processu...">
 		})();
 	}
 </script>
-
 <script type="text/javascript">
 	var css_simplesite_com_fallback_element = document
 			.getElementById('css_simplesite_com_fallback');
@@ -66,7 +65,7 @@ Claritas est etiam processu...">
 }
 </style>
 </head>
-<body data-pid="146239000" data-iid="">
+<body data-pid="146238995" data-iid="">
 
 
 	<div class="container-fluid site-wrapper">
@@ -95,16 +94,15 @@ Claritas est etiam processu...">
 							</span>
 							</a>
 
-
-
 							<!-- Everything you want hidden at 940px or less, place within here -->
 							<div class="nav-collapse collapse">
 								<ul class="nav" id="topMenu" data-submenu="horizontal">
-									<li class="  " style=""><a href="wedding-blog">Wedding Blog</a></li>
+									<li class=" active " style=""><a href="wedding-blog">Wedding Blog</a></li>
 									<li class="  " style=""><a href="photo-album">Photo Album</a></li>
-									<li class=" active " style=""><a href="wish-list">Wishlist</a></li>
+									<li class="  " style=""><a href="wish-list">Wishlist</a></li>
 									<li class="  " style=""><a href="guest-book">Guestbook</a></li>
 									<li class="  " style=""><a href="party-address">Party Address</a></li>
+								</ul>
 							</div>
 						</div>
 					</div>
@@ -120,19 +118,28 @@ Claritas est etiam processu...">
 				<div class="row-fluid content-inner">
 					<div id="left" class="span9">
 						<!-- ADD "span12" if no sidebar, or "span9" with sidebar -->
-						<div class="wrapper ">
-							<div class="content">
-								<div class="section article">
-									<div class="heading">
-										<h3>Our Wishes:</h3>
-									</div>
+						<div class="wrapper blog">
+							<div class="heading">
+								<h1 class="page-title">Overview - Wedding Blog</h1>
+							</div>
 
-									<div class="content">
-										<p th:each="wish:${listWishes}">
-											<span style="font-size: 16px;" data-mce-mark="1">[(${wish.content})]</span>
-										</p>
-									</div>
-								</div>
+							<div class="content">
+								<table class="table"> 
+								    <thead>
+								        <tr>
+								            <th name="month-year" colspan="3">NAME</th>
+								            <th name="date" class="align-right">Date</th>
+								        </tr>
+								    </thead>
+								    <tbody>
+								            <tr th:each="entity:${listEntities}">
+								                <td width="60%"><a href="wedding-blog">[(${entity.name})]</a></td>
+								                <td><i class="icon-thumbs-up"> 0</i></td>
+								                <td><i class="icon-comment"> 0</i></td>
+								                <td class="align-right">[(${entity.date})]</td>
+								            </tr>
+								    </tbody>
+								</table>
 							</div>
 
 
@@ -193,7 +200,7 @@ Claritas est etiam processu...">
 
 
 	<input type="hidden" id="anti-forgery-token"
-		value="vFZIp11QDd7w1cZjYdzwVVw3rTHgQi1lpMMqomvLq/qGfx85dADIn6rd+jb5+yvdIjnIKNejlFu6vxL7J8Np5XDrvUyMasUYb8PZlmgROpWgWhFTGjCoyYPRNAZ57HUVr4c6QnvYhoYJLJG8dWLP2NhmdVJF+RhKEwkT1Q7ogGGTSddnANm69E10QsexY3DV5L0XqDr1VHHaGc7ZSxM2ktc82EJ4KYkwEXssuv2a0gNK9Zc8XKu5Ft28qiKVqNsj3YTpteTqb5UM9+U6Dtk4R+nJWQ1rw7NgjMDh9hCABmCHxgiQJBhPooojs3CleKjorvDjhc1vLhNfhEdOaEJSAXy1zHip7yoxj/Ybn86swSis7wnW/YTVdMos5ci15FQjadE686Sjhc6oDKZlJnux560OQS9Z21TbBWy2dvAyPVKGaADoSowBBR+wcCDeRiOhkPkqHsUvOn9PEJU9Zxmw0A==">
+		value="vFZIp11QDd7w1cZjYdzwVVw3rTHgQi1lpMMqomvLq/qGfx85dADIn6rd+jb5+yvdIjnIKNejlFu6vxL7J8Np5XDrvUyMasUYb8PZlmgROpWgWhFTGjCoyYPRNAZ57HUVr4c6QnvYhoYJLJG8dWLP2NhmdVJF+RhKEwkT1Q7ogGGTSddnANm69E10QsexY3DV5L0XqDr1VHHaGc7ZSxM2ktc82EJ4KYkwEXssuv2a0gNK9Zc8XKu5Ft28qiKVqNsj3YTpteTqb5UM9+U6Dtk4R+nJWQ1rw7NgjMDh9hCABmCHxgiQJBhPooojs3CleKjorvDjhc1vLhNfhEdOaEJSAXy1zHip7yoxj/Ybn86swSis7wnW/YTVdMos5ci15FQjadE686Sjhc6oDKZlJnux5ztZGLoqp/Z0Js0/i+F3tfYUV7Tyg5+9xFjKareE2LdjZ1W91ycPl9D9bZBpRi5nGg==">
 
 
 	<script>
@@ -234,15 +241,8 @@ Claritas est etiam processu...">
 	<!-- Remove after blog exp concludes -->
 	<!-- Remove after expeirment is done-->
 
-	<div id="sm2-container" class="movieContainer high_performance"
-		style="z-index: 10000; position: fixed; width: 8px; height: 8px; bottom: 0px; left: 0px; overflow: hidden; visibility: hidden;">
-		<embed name="sm2movie" id="sm2movie"
-			src="/Images/sm297/soundmanager2_flash9.swf" quality="high"
-			allowscriptaccess="always" bgcolor="#ffffff"
-			pluginspage="www.macromedia.com/go/getflashplayer"
-			title="JS/Flash audio component (SoundManager 2)"
-			type="application/x-shockwave-flash" wmode="transparent"
-			haspriority="true">
-	</div>
+	<div id="sm2-container"
+		class="movieContainer high_performance  high_performance"
+		style="z-index: 10000; position: fixed; width: 8px; height: 8px; bottom: 0px; left: 0px; overflow: hidden; visibility: hidden;"></div>
 </body>
 </html>
