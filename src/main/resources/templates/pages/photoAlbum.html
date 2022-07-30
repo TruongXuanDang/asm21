@@ -36,6 +36,7 @@
 <meta name="description"
 	content="Maria and Paul&#39;s Wedding - http://www.simplesite.com/us-123wedding/">
 <link th:href="@{/css/3731000.design.v25490.css}" rel="stylesheet" type="text/css">
+<link th:href="@{/css/photo-album.css}" rel="stylesheet" type="text/css">
 <link rel="canonical"
 	href="http://www.simplesite.com/us-123wedding/146239001">
 <link rel="shortcut icon" href="data:image/x-icon;,">
@@ -136,132 +137,32 @@
 								<!-- Slideshow -->
 								<div class="section">
 									<div class="content">
-										<div class="slideshow" data-ss="albumslideshow">
-											<object width="100%" height="425px" id="flash-4605"
-												type="application/x-shockwave-flash"
-												data="./Photo Album - www.simplesite.com_us-123wedding_files/fotoalbum20110225b.swf"
-												style="visibility: visible;">
-												<param name="wmode" value="transparent">
-												<param name="allowfullscreen" value="true">
-												<param name="quality" value="best">
-												<param name="allowscriptaccess" value="always">
-												<param name="flashvars"
-													value="mode=normal&amp;xmlurl=http%3A%2F%2Fwww.simplesite.com%2Fuserpages%2Fpages%2FPhotoAlbumSlideShowXml.aspy%3Fid%3D146239001%26cid%3D3697123&amp;imageid=94912277">
-											</object>
+										<div class="slideshow-container">
+											<div class="mySlides fade" th:each="photo:${listPhotos}" th:if="${photo.link!=''}">
+												  <div class="numbertext">[(${photo.id})]</div>
+												  	<img th:src="${photo.link}" style="width:100%">
+												  <div class="text">[(${photo.description})]</div>
+											</div>
+											<a class="prev" onclick="plusSlides(-1)">❮</a>
+											<a class="next" onclick="plusSlides(1)">❯</a>
 										</div>
+										<br>
+
 									</div>
 								</div>
-								<div class="section">
+								<div class="section image-items">
 									<div class="content">
 										<ul class="thumbnails" data-ss="">
-											<li class="span3">
+											<li class="span3"  th:each="photo:${listPhotos}" th:if="${photo.link!=''}">
 												<div>
 													<div class="thumbnail">
 														<a rel="nofollow"
-															href="http://www.simplesite.com/us-123wedding/146239001?i=94912277"><img
-															th:src="@{/images/i282319414620602133._rsw360h270_szw360h270_.jpg}"></a>
+															href="#"><img
+															th:src="${photo.link}"></a>
 													</div>
 												</div>
 											</li>
-											<li class="span3">
-												<div>
-													<div class="thumbnail">
-														<a rel="nofollow"
-															href="http://www.simplesite.com/us-123wedding/146239001?i=94912268"><img
-															th:src="@{/images/i282319414620602124._rsw360h270_szw360h270_.jpg}"></a>
-													</div>
-												</div>
-											</li>
-											<li class="span3">
-												<div>
-													<div class="thumbnail">
-														<a rel="nofollow"
-															href="http://www.simplesite.com/us-123wedding/146239001?i=94912276"><img
-															th:src="@{/images/i282319414620602132._rsw360h270_szw360h270_.jpg}"></a>
-													</div>
-												</div>
-											</li>
-											<li class="span3">
-												<div>
-													<div class="thumbnail">
-														<a rel="nofollow"
-															href="http://www.simplesite.com/us-123wedding/146239001?i=94912271"><img
-															th:src="@{/images/i282319414620602127._rsw360h270_szw360h270_.jpg}"></a>
-													</div>
-												</div>
-											</li>
-
 										</ul>
-										<ul class="thumbnails" data-ss="">
-											<li class="span3">
-												<div>
-													<div class="thumbnail">
-														<a rel="nofollow"
-															href="http://www.simplesite.com/us-123wedding/146239001?i=94912280"><img
-															th:src="@{/images/i282319414620602136._rsw360h270_szw360h270_.jpg}"></a>
-													</div>
-												</div>
-											</li>
-											<li class="span3">
-												<div>
-													<div class="thumbnail">
-														<a rel="nofollow"
-															href="http://www.simplesite.com/us-123wedding/146239001?i=94912275"><img
-															th:src="@{/images/i282319414620602131._rsw360h270_szw360h270_.jpg}"></a>
-													</div>
-												</div>
-											</li>
-											<li class="span3">
-												<div>
-													<div class="thumbnail">
-														<a rel="nofollow"
-															href="http://www.simplesite.com/us-123wedding/146239001?i=94912237"><img
-															th:src="@{/images/i282319414620602093._rsw360h270_szw360h270_.jpg}"></a>
-													</div>
-												</div>
-											</li>
-											<li class="span3">
-												<div>
-													<div class="thumbnail">
-														<a rel="nofollow"
-															href="http://www.simplesite.com/us-123wedding/146239001?i=94912269"><img
-															th:src="@{/images/i282319414620602125._rsw360h270_szw360h270_.jpg}"></a>
-													</div>
-												</div>
-											</li>
-
-										</ul>
-										<ul class="thumbnails" data-ss="">
-
-										</ul>
-										<ul class="thumbnails" data-ss="">
-
-										</ul>
-										<ul class="thumbnails" data-ss="">
-
-										</ul>
-										<ul class="thumbnails" data-ss="">
-
-										</ul>
-										<ul class="thumbnails" data-ss="">
-
-										</ul>
-										<ul class="thumbnails" data-ss="">
-
-										</ul>
-										<ul class="thumbnails" data-ss="">
-
-										</ul>
-										<ul class="thumbnails" data-ss="">
-
-										</ul>
-										<ul class="thumbnails" data-ss="">
-
-										</ul>
-										<ul class="thumbnails" data-ss="">
-
-										</ul>
-
 									</div>
 								</div>
 							</div>
@@ -361,8 +262,34 @@
 	<!-- End Google Tag Manager -->
 
 
-	<!-- Remove after blog exp concludes -->
-	<!-- Remove after expeirment is done-->
+	<script type="text/javascript">
+		let slideIndex = 1;
+		showSlides(slideIndex);
+	
+		function plusSlides(n) {
+		  showSlides(slideIndex += n);
+		}
+	
+		function currentSlide(n) {
+		  showSlides(slideIndex = n);
+		}
+	
+		function showSlides(n) {
+		  let i;
+		  let slides = document.getElementsByClassName("mySlides");
+		  let dots = document.getElementsByClassName("dot");
+		  if (n > slides.length) {slideIndex = 1}    
+		  if (n < 1) {slideIndex = slides.length}
+		  for (i = 0; i < slides.length; i++) {
+		    slides[i].style.display = "none";  
+		  }
+		  for (i = 0; i < dots.length; i++) {
+		    dots[i].className = dots[i].className.replace(" active", "");
+		  }
+		  slides[slideIndex-1].style.display = "block";  
+		  dots[slideIndex-1].className += " active";
+		}
+	</script>
 
 	<div id="sm2-container" class="movieContainer high_performance"
 		style="z-index: 10000; position: fixed; width: 8px; height: 8px; bottom: 0px; left: 0px; overflow: hidden; visibility: hidden;">
