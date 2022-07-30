@@ -4,14 +4,19 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class Messages {
-	private long id; 
+	private long id;
+	@NotEmpty(message = "Content cannot be empty.")
 	private String content;
 	private String link;
-	private String name; 
+	@NotEmpty(message = "Name cannot be empty.")
+	private String name;
+	@NotEmpty(message = "Email cannot be empty.")
 	private String email;
+	@NotEmpty(message = "Website cannot be empty.")
 	private String website;
 	
 	public Messages() {

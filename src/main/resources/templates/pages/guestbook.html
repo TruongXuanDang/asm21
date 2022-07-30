@@ -24,6 +24,7 @@
 <meta name="description"
 	content="Maria and Paul&#39;s Wedding - http://www.simplesite.com/us-123wedding/">
 <link th:href="@{/css/3731000.design.v25490.css}" rel="stylesheet" type="text/css">
+<link th:href="@{/css/guest-book.css}" rel="stylesheet" type="text/css">
 <link rel="canonical"
 	href="http://www.simplesite.com/us-123wedding/146239002">
 <link rel="shortcut icon" href="data:image/x-icon;,">
@@ -117,7 +118,7 @@
 						<!-- ADD "span12" if no sidebar, or "span9" with sidebar -->
 						<div class="wrapper guest-book">
 							<div class="controls">
-								<button id="guestbook-add-message" class="btn" type="button">Add
+								<button id="guestbook-add-message" class="btn" type="button" onclick="myFunction()">Add
 									a message - Click here!</button>
 							</div>
 							<div class="heading">
@@ -127,29 +128,33 @@
 							<div class="content">
 								<div id="guestbook-form">
 									<div class="section add-message"><div class="controls">
-									    <button class="close">×</button>
+									    <button class="close" onclick="myFunction()">×</button>
 									</div>
 									<div class="heading">
 									    <h4>Add a message</h4>
 									</div>
-									<form class="content" action="#" th:action="@{/saveMessage}" th:object="${messages}" method="post">
+									<form class="content form" action="#" th:action="@{/saveMessage}" th:object="${messages}" method="post">
 									    <div class="row-fluid">
 									        <div class="span6">
 									            <div class="form-horizontal">
-									                <div class="control-group">
-									                    <textarea name="text" class="input-block-level" maxlength="1500" placeholder="Write your message here" th:field="*{content}"></textarea>
+									                <div class="control-group form-group">
+									                    <textarea name="text" class="input-block-level form-control" maxlength="1500" placeholder="Write your message here" th:field="*{content}"></textarea>
+									                    <div class="alert alert-warning" th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></div>
 									                    <span class="help-block"></span>
 									                </div>
-									                <div class="control-group">
-									                    <input name="author[name]" class="input-block-level" type="text" placeholder="Write your name here" th:field="*{name}">
+									                <div class="control-group form-group">
+									                    <input name="author[name]" class="input-block-level form-control" type="text" placeholder="Write your name here" th:field="*{name}">
+									                    <div class="alert alert-warning" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
 									                    <span class="help-block"></span>
 									                </div>
-									                <div class="control-group">
-									                    <input name="author[email]" class="input-block-level" type="text" placeholder="Write your email here" th:field="*{email}">
+									                <div class="control-group form-group">
+									                    <input name="author[email]" class="input-block-level form-control" type="text" placeholder="Write your email here" th:field="*{email}">
+									                    <div class="alert alert-warning" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
 									                    <span class="help-block"></span>
 									                </div>
-									                <div class="control-group">
-									                    <input name="author[website]" class="input-block-level" type="text" placeholder="Your website address, if you have a website" th:field="*{website}">
+									                <div class="control-group form-group">
+									                    <input name="author[website]" class="input-block-level form-control" type="text" placeholder="Your website address, if you have a website" th:field="*{website}">
+									                    <div class="alert alert-warning" th:if="${#fields.hasErrors('website')}" th:errors="*{website}"></div>
 									                    <span class="help-block"></span>
 									                </div>
 									                <input name="image_guid" type="hidden">
@@ -157,12 +162,8 @@
 									        </div>
 									        <div class="span6">
 									            <div class="row-fluid">
-									                <div class="image-input">
-										                <form action="/action_page.php">
-														  <input type="file" id="myFile" name="filename">
-														  <input type="submit">
-														</form>
-									                    <button id="imageuploader" class="btn" type="button">Add image</button>
+									                <div class="image-input control-group form-group">
+									                	<input type="file" class="form-control" th:field="*{link}"/>
 									                </div>
 									            </div>
 									        </div>
@@ -194,44 +195,26 @@
 								</div>
 								<div class="section">
 									<div class="content">
-										<div class="item">
+										<div class="item" th:each="message:${listMessages}">
 											<div class="controls">
-												<a rel="nofollow" class="email" href="mailto:yy@123mail.com">Email</a>
+												<a rel="nofollow" class="email" href="mailto:yy@123mail.com">[(${message.email})]</a>
 												<span class="date-text">27-10-2015</span>
 											</div>
 											<div class="heading">
-												<h4>Charlotte Robert</h4>
+												<h4>[(${message.name})]</h4>
 											</div>
 
 											<div class="content">
 												<div class="img-simple span4 pull-left">
 													<div class="image">
 														<a rel="nofollow" data-ss="imagemodal"
-															data-href="http://sp.simplesite.com/7a/e3/s7ae3b6c800a342ed95b955bd73ab42db.jpg"><img
-															th:src="@{/images/s7ae3b6c800a342ed95b955bd73ab42db.jpg}"></a>
+															data-href="http://sp.simplesite.com/7a/e3/s7ae3b6c800a342ed95b955bd73ab42db.jpg">
+															<img th:src="${message.link}" style="width:100%">
+														</a>
 													</div>
 												</div>
 
-												<p>Claritas est etiam processus dynamicus, qui sequitur
-													mutationem consuetudium lectorum. Mirum est not...</p>
-											</div>
-										</div>
-										<div class="item">
-											<div class="controls">
-												<a rel="nofollow" class="email" href="mailto:">Email</a> <span
-													class="date-text">20-11-2012</span>
-											</div>
-											<div class="heading">
-												<h4>André Martin</h4>
-											</div>
-
-											<div class="content">
-
-												<p>Mirum est notare quam littera gothica, quam nunc
-													putamus parum claram, anteposuerit litterarum formas
-													humanitatis per seacula quarta decima et quinta decima.
-													Eodem modo typi, qui nunc nobis videntur parum clari, fiant
-													sollemnes in futurum.</p>
+												<p>[(${message.content})]</p>
 											</div>
 										</div>
 									</div>
@@ -332,9 +315,16 @@
 	</script>
 	<!-- End Google Tag Manager -->
 
-
-	<!-- Remove after blog exp concludes -->
-	<!-- Remove after expeirment is done-->
+	<script>
+		function myFunction() {
+			  var x = document.getElementById("guestbook-form");
+			  if (x.style.display === "none") {
+			    x.style.display = "block";
+			  } else {
+			    x.style.display = "none";
+			  }
+			}
+	</script>
 
 	<div id="sm2-container" class="movieContainer high_performance"
 		style="z-index: 10000; position: fixed; width: 8px; height: 8px; bottom: 0px; left: 0px; overflow: hidden; visibility: hidden;">

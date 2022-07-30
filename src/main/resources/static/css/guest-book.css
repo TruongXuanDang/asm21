@@ -1,0 +1,6 @@
+@charset "UTF-8";
+
+.image-input {
+	display: flex;
+    align-items: center;
+}
